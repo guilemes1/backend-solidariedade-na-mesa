@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("/auth")
 public class AutenticacaoController {
@@ -64,6 +66,6 @@ public class AutenticacaoController {
         // Persistir o usuário no banco de dados
         userRepository.save(novoUsuario);
 
-        return ResponseEntity.ok("Usuário registrado com sucesso!");
+        return ResponseEntity.created(URI.create("/users/" + novoUsuario.getId())).build();
     }
 }

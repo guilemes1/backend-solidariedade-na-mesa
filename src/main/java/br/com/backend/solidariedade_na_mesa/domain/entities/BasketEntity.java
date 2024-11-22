@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,14 +19,15 @@ public class BasketEntity {
     @Id
     @Column(name = "basket_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long BasketId;
+    private Long basketId;
 
     @Column(name = "image")
     private String image;
 
-    @Column(name = "value")
-    private Double value;
+    @Column(name = "name")
+    private String name;
 
-
+    @Column(name = "price")
+    private BigDecimal price;
 
 }
